@@ -1,0 +1,45 @@
+package com.accenture;
+abstract class Shape {
+    abstract double getArea();
+}
+
+class Rectangle extends Shape {
+    private double length;
+    private double width;
+
+    public Rectangle(double length, double width) {
+        this.length = length;
+        this.width = width;
+    }
+
+    @Override
+    double getArea() {
+        return length * width;
+    }
+}
+
+class Circle extends Shape {
+    private double radius;
+
+    public Circle(double radius) {
+        this.radius = radius;
+    }
+
+    @Override
+    double getArea() {
+        return Math.PI * radius * radius;
+    }
+}
+
+public class ShapeAreaCalculator {
+	public static void main(String[] args) {
+        Rectangle rectangle = new Rectangle(5.0, 7.0);
+        Circle circle = new Circle(3.5);
+
+        double rectangleArea = rectangle.getArea();
+        double circleArea = circle.getArea();
+
+        System.out.println("Area of rectangle: " + rectangleArea);
+        System.out.println("Area of circle: " + circleArea);
+    }
+}
