@@ -1,9 +1,9 @@
 package com.accenture;
-interface Shape {
+interface shape {
     double getArea();
 }
 
-abstract class AbstractShape implements Shape {
+abstract class AbstractShape implements shape {
     abstract void printDetails();
 }
 
