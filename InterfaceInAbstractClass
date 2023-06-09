@@ -1,39 +1,54 @@
 package com.accenture;
-interface shape {
-    double getArea();
+interface Navigable {
+    void navigate();
 }
 
-abstract class AbstractShape implements shape {
-    abstract void printDetails();
+abstract class Location implements Navigable {
+    private String name;
+    
+    public Location(String name) {
+        this.name = name;
+    }
+    
+    public String getName() {
+        return name;
+    }
+    
+    @Override
+    public void navigate() {
+        System.out.println("Navigating to " + getName());
+    }
 }
 
-class Rectangle extends AbstractShape {
-    private double length;
-    private double width;
-
-    public Rectangle(double length, double width) {
-        this.length = length;
-        this.width = width;
+class City extends Location {
+    public City(String name) {
+        super(name);
     }
-
+    
     @Override
-    public double getArea() {
-        return length * width;
+    public void navigate() {
+        System.out.println("Navigating to the city: " + getName());
     }
+}
 
+class Landmark extends Location {
+    public Landmark(String name) {
+        super(name);
+    }
+    
     @Override
-    void printDetails() {
-        System.out.println("Rectangle: Length = " + length + ", Width = " + width);
+    public void navigate() {
+        System.out.println("Navigating to the landmark: " + getName());
     }
 }
 
 public class InterfaceInAbstractClass {
 	public static void main(String[] args) {
-        Rectangle rectangle = new Rectangle(5.0, 7.0);
-
-        double area = rectangle.getArea();
-        System.out.println("Area of rectangle: " + area);
-
-        rectangle.printDetails();
+        City city = new City("New York");
+        Landmark landmark = new Landmark("Statue of Liberty");
+        
+        city.navigate();
+        landmark.navigate();
     }
 }
+
