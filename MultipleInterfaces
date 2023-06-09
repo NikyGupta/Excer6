@@ -1,0 +1,46 @@
+package com.accenture;
+interface Edible {
+    void eat();
+}
+
+interface Rotatable {
+    void rotate();
+}
+
+class Apple implements Edible, Rotatable {
+    @Override
+    public void eat() {
+        System.out.println("Eating an apple");
+    }
+    
+    @Override
+    public void rotate() {
+        System.out.println("Rotating an apple");
+    }
+}
+
+class Orange implements Edible, Rotatable {
+    @Override
+    public void eat() {
+        System.out.println("Eating an orange");
+    }
+    
+    @Override
+    public void rotate() {
+        System.out.println("Rotating an orange");
+    }
+}
+
+public class MultipleInterfaces {
+	public static void main(String[] args) {
+        Apple apple = new Apple();
+        Orange orange = new Orange();
+        
+        apple.eat();
+        apple.rotate();
+        
+        orange.eat();
+        orange.rotate();
+    }
+}
+
